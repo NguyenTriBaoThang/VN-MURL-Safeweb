@@ -1,0 +1,46 @@
+name: "🔍 ML Classification Feedback (False Positive / Negative)"
+description: "Report an incorrect classification result (e.g., safe site blocked or threat missed)."
+title: "[ML-FEEDBACK]: "
+labels: ["model-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: "Help us refine our URL intelligence models! Please share non-sensitive URL samples that were incorrectly classified."
+  - type: input
+    id: url_sample
+    attributes:
+      label: Target URL
+      description: The URL that was misclassified (defang if dangerous, e.g. hxxps://...).
+      placeholder: "https://example.com/page"
+    validations:
+      required: true
+  - type: dropdown
+    id: predicted_label
+    attributes:
+      label: Predicted Label
+      description: What did the model predict?
+      options:
+        - "BENIGN (ALLOW)"
+        - "PHISHING (BLOCK)"
+        - "ADULT (BLOCK)"
+    validations:
+      required: true
+  - type: dropdown
+    id: ground_truth
+    attributes:
+      label: Expected Ground Truth
+      description: What should the true label be?
+      options:
+        - "BENIGN (Safe)"
+        - "PHISHING (Malicious / Fake)"
+        - "ADULT (Adult / Inappropriate for Children)"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context & Explanation
+      description: Why is this prediction incorrect? Provide domain reputation details or official background.
+    validations:
+      required: true
+

@@ -1,0 +1,40 @@
+area/ai-service:
+  - changed-files:
+      - any-glob-to-any-file: 'src/ai-service/**/*'
+
+area/backend-api:
+  - changed-files:
+      - any-glob-to-any-file: 'src/api/**/*'
+
+area/frontend-web:
+  - changed-files:
+      - any-glob-to-any-file: 'src/web/**/*'
+
+area/browser-extension:
+  - changed-files:
+      - any-glob-to-any-file: 'src/browser-extension/**/*'
+
+area/research-metrics:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'research/**/*'
+          - 'metrics/**/*'
+          - 'figures/**/*'
+          - 'reports/**/*'
+
+area/documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'docs/**/*'
+          - '*.md'
+
+area/ci-cd:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**/*'
+          - 'docker-compose*.yml'
+          - 'Makefile'
+          - 'Dockerfile'
+          - '.gitignore'
+          - '.gitattributes'
+

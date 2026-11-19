@@ -1,0 +1,16 @@
+{
+  "final_model": "/content/VN_MURL_outputs/VN_MURL_SafeWeb_Final_Model.joblib",
+  "metadata": "/content/VN_MURL_outputs/VN_MURL_SafeWeb_Final_Model_Metadata.json",
+  "final_summary": "/content/VN_MURL_outputs/FINAL_multitask_summary.csv",
+  "feature_dictionary": "/content/VN_MURL_outputs/feature_dictionary.csv",
+  "final_output_labels": [
+    "BENIGN",
+    "PHISHING",
+    "ADULT"
+  ],
+  "actions": {
+    "BENIGN": "ALLOW",
+    "PHISHING": "BLOCK",
+    "ADULT": "BLOCK"
+  }
+}

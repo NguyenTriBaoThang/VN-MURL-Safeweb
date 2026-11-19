@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "VN-MURL SafeWeb Extension",
+  "version": "2.0.0",
+  "description": "VN-MURL SafeWeb: Real-time Machine Learning URL Security & Child-Safe Web Protection",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "VN-MURL SafeWeb Protection"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost:5000/*",
+    "http://localhost:3000/*",
+    "http://127.0.0.1:5000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["block.html", "block.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

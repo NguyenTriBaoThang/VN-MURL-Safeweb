@@ -1,0 +1,76 @@
+version: "3.9"
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: vnmurl_sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${DB_PASSWORD:-SafeWeb@2026StrongPass!}"
+    ports:
+      - "1433:1433"
+    volumes:
+      - vnmurl_sql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P '${DB_PASSWORD:-SafeWeb@2026StrongPass!}' -Q 'SELECT 1' -C || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  ai-service:
+    build:
+      context: ./src/ai-service
+      dockerfile: Dockerfile
+    container_name: vnmurl_ai
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./src/ai-service/model:/app/model:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: src/api/Dockerfile
+    container_name: vnmurl_api
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__Default=Server=sqlserver;Database=VnMurlSafeWeb_DB;User Id=sa;Password=${DB_PASSWORD:-SafeWeb@2026StrongPass!};TrustServerCertificate=True;
+      - AiService__BaseUrl=http://ai-service:8000
+      - Jwt__Key=${JWT_SECRET:-VnMurlSafeWeb_SuperSecretKey_Production_2026_Minimum32CharsLong!}
+      - Jwt__Issuer=VnMurlSafeWeb
+      - Jwt__Audience=VnMurlSafeWeb
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+    volumes:
+      - ./metrics:/app/metrics:ro
+      - ./figures:/app/figures:ro
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./src/web
+      dockerfile: Dockerfile
+    container_name: vnmurl_web
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  vnmurl_sql_data:

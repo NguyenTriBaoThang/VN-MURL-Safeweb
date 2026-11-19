@@ -1,0 +1,11 @@
+model_a,model_b,b_Acorrect_Bwrong,c_Awrong_Bcorrect,p_value,significant_0.05
+Logistic Regression,Decision Tree,144,90,0.0005041289481249569,True
+Logistic Regression,Random Forest,22,78,1.5905328473786136e-08,True
+Logistic Regression,SVM (RBF),53,79,0.029171626999401647,True
+Logistic Regression,AdaBoost,124,43,2.671439649859326e-10,True
+Decision Tree,Random Forest,32,142,9.718725894710977e-18,True
+Decision Tree,SVM (RBF),59,139,1.263557209712472e-08,True
+Decision Tree,AdaBoost,150,123,0.11541788065178843,False
+Random Forest,SVM (RBF),46,16,0.00017632711255144299,True
+Random Forest,AdaBoost,149,12,3.09219937591994e-31,True
+SVM (RBF),AdaBoost,135,28,5.248825264114538e-18,True

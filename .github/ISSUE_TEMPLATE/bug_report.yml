@@ -1,0 +1,55 @@
+name: "🐛 Bug Report"
+description: "Report a bug or unexpected behavior in VN-MURL SafeWeb."
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to report an issue! Please provide as much context as possible."
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part of the system is experiencing the issue?
+      options:
+        - "Web Dashboard (React / Vite)"
+        - "Backend API (ASP.NET Core)"
+        - "AI Microservice (FastAPI / ML Engine)"
+        - "Browser Extension (Manifest V3)"
+        - "Docker / Deployment"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "Describe what went wrong..."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: OS, browser version, Docker version, .NET / Python runtime, etc.
+      placeholder: "e.g. Windows 11, Chrome 130, .NET 10, Python 3.12"
+

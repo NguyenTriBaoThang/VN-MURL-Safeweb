@@ -1,0 +1,38 @@
+# Set default behavior to automatically normalize line endings to LF
+* text=auto eol=lf
+
+# Explicit text files
+*.cs text diff=csharp
+*.py text diff=python
+*.ts text
+*.tsx text
+*.js text
+*.jsx text
+*.json text
+*.yml text
+*.yaml text
+*.md text
+*.html text
+*.css text
+*.svg text
+*.sh text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+Dockerfile text eol=lf
+
+# Large Machine Learning artifacts tracked with Git LFS
+*.joblib filter=lfs diff=lfs merge=lfs -text
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+
+# Binary media files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+

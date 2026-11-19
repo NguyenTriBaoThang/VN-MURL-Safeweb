@@ -1,0 +1,49 @@
+﻿feature,group,description
+url_length,length,Tổng số ký tự của URL.
+hostname_length,length,Độ dài hostname.
+path_length,length,Độ dài path.
+query_length,length,Độ dài query string.
+fragment_length,length,Độ dài URL fragment.
+num_dots,character,Số dấu chấm '.'.
+num_hyphens,character,Số dấu gạch ngang '-'.
+num_underscores,character,Số dấu gạch dưới '_'.
+num_slashes,character,Số dấu '/'.
+num_question_marks,character,Số dấu '?'.
+num_equals,character,Số dấu '='.
+num_at,character,Số ký tự '@'.
+num_ampersand,character,Số ký tự '&'.
+num_percent,character,Số ký tự '%'.
+num_digits,character,Số chữ số.
+num_letters,character,Số chữ cái.
+num_special_chars,character,Số ký tự không phải chữ/số.
+digit_ratio,character,Tỷ lệ chữ số trên độ dài URL.
+letter_ratio,character,Tỷ lệ chữ cái trên độ dài URL.
+special_char_ratio,character,Tỷ lệ ký tự đặc biệt trên độ dài URL.
+num_subdomains,host_structure,Số subdomain ước lượng trước registrable domain.
+host_label_count,host_structure,Số nhãn phân tách bởi dấu chấm trong hostname.
+has_ip_address,host_structure,1 nếu hostname là địa chỉ IP.
+has_https,host_structure,1 nếu scheme là HTTPS.
+scheme_missing,host_structure,1 nếu URL không ghi rõ scheme.
+has_explicit_port,host_structure,1 nếu URL khai báo port.
+num_query_params,host_structure,Số query parameter.
+has_punycode,host_structure,1 nếu hostname chứa xn--.
+has_www,host_structure,1 nếu hostname bắt đầu bằng www.
+has_wildcard_host,host_structure,1 nếu host chứa wildcard dạng *.domain.
+has_double_slash_path,host_structure,1 nếu có // bất thường sau phần host.
+tld_length,host_structure,Độ dài TLD.
+domain_digit_ratio,host_structure,Tỷ lệ chữ số trong hostname.
+domain_hyphen_count,host_structure,Số dấu '-' trong hostname.
+path_depth,host_structure,Số tầng path.
+url_entropy,statistical,Shannon entropy của toàn URL.
+hostname_entropy,statistical,Shannon entropy của hostname.
+path_entropy,statistical,Shannon entropy của path.
+num_tokens,statistical,Số token sau khi tách URL bởi ký tự không chữ/số.
+max_token_length,statistical,Độ dài token lớn nhất.
+avg_token_length,statistical,Độ dài token trung bình.
+longest_digit_run,statistical,Chuỗi chữ số liên tiếp dài nhất.
+longest_alpha_run,statistical,Chuỗi chữ cái liên tiếp dài nhất.
+non_ascii_count,statistical,Số ký tự non-ASCII.
+suspicious_keyword_count,heuristic,Tổng số lần xuất hiện các từ khóa phishing chung.
+has_suspicious_keyword,heuristic,1 nếu có ít nhất một từ khóa đáng ngờ.
+is_url_shortener,heuristic,1 nếu hostname thuộc danh sách URL shortener phổ biến.
+is_suspicious_tld,heuristic,1 nếu TLD thuộc danh sách heuristic cần chú ý.
