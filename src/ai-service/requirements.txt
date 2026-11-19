@@ -5,4 +5,4 @@ scikit-learn==1.6.1
 joblib>=1.4.0
 pandas>=2.2.0
 numpy>=1.26.0
-tldextract>=5.1.0
+tldextract>=5.4.0
